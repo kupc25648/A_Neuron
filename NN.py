@@ -19,6 +19,7 @@ class Neuron:
         self.b_grad = None
         self.lr = 0.001
     def forward(self,x):
+        # sigmoid activation function
         return 1/(1+np.exp(-((self.w*x)+self.b)))
     def backpropagation(self,x,y,iteration):
         for i in range(iteration):
