@@ -23,8 +23,8 @@ backpropagation : A process to adjust w and b in the neuron
     0. Generate training data of x[i] and y[i]
     1. Feed x[i] to the neuron, the neuron return the output(y_pred[i])
     2. Calculate 'square loss of y[i] and y_pred[i]'
-       loss = (y[i]-y_pred[i])**2
-    3. Calculate gradient of {loss} respects to {y_pred[i]}
+       loss[i] = (y[i]-y_pred[i])**2
+    3. Calculate gradient of {loss[i]} respects to {y_pred[i]}
        loss_grad[i] = 2 * (y[i]-y_pred[i]) * -1
     4. Calculate gradient of {y_pred[i]} respects to {z[i]}
        sigmoid_grad[i] = y_pred[i] * (1-y_pred[i])
