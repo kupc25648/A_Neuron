@@ -100,13 +100,15 @@ class Neuron:
         self.b_grad = None
         # learning rate
         # 学習率
-        self.lr = 0.001
+        self.lr = 0.1
+        self.loss_store = []
     def forward(self,x):
         return 1/(1+np.exp(-((self.w*x)+self.b)))
     def backpropagation(self,x,y,iteration):
         for i in range(iteration):
             y_pred = self.forward(x[i])
             loss = (y[i]-y_pred)**2
+            self.loss_store.append(loss)
             # loss gradient respects to y_pred : -2*(y[i]-y_pred)
             # y_predに関する損失勾配：-2 *（y [i] -y_pred）
             loss_grad = -2*(y[i]-y_pred)
@@ -135,12 +137,13 @@ class Neuron:
             # print results
             # 結果を印刷する
             if ((i+1)%10 == 0) or (i==iteration):
-                print('Iteration {} loss {} w {} b {}'.format(i+1,loss,self.w,self.b))
+                print('Iteration {} loss {} w {} b {}'.format(i+1,sum(self.loss_store)/len(self.loss_store),self.w,self.b))
 
-# train on funtion y = 2x+3 : A Neuron can solve a linear function
-# 関数 y = 2x + 3のトレーニング：ニューロンは線形関数を解くことができます
+# train on funtion y = sigmoid(2x+3) : A Neuron can solve a sigmoid of linear function
+# 関数 y = sigmoid(2x+3)のトレーニング：ニューロンは線形関数のシグモイドを解くことができます
 def y_func(x):
-    return (2*x) + 3
+    return 1/(1+np.exp(-((2*x) + 3)))
+
 x_train = []
 y_train = []
 # generate train data
@@ -155,5 +158,15 @@ A_Neuron = Neuron()
 # Train Neuron
 # ニューロンのトレーニング
 A_Neuron.backpropagation(x_train,y_train,len(x_train))
+
+
+
+
+
+
+
+
+
+
 
 
