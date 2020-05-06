@@ -137,14 +137,14 @@ class Neuron:
             if ((i+1)%10 == 0) or (i==iteration):
                 print('Iteration {} loss {} w {} b {}'.format(i+1,loss,self.w,self.b))
 
-# test on funtion y = 2x+3 : A Neuron can solve a linear function
-# 関数 y = 2x + 3のテスト：ニューロンは線形関数を解くことができます
+# train on funtion y = 2x+3 : A Neuron can solve a linear function
+# 関数 y = 2x + 3のトレーニング：ニューロンは線形関数を解くことができます
 def y_func(x):
     return (2*x) + 3
 x_train = []
 y_train = []
-# generate test data
-# テストデータを生成する
+# generate train data
+# トレーニングデータを生成する
 for i in range(10000):
     x_train.append(np.random.randn())
     y_train.append(y_func(x_train[-1]))
