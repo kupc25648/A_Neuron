@@ -118,8 +118,8 @@ class Neuron:
             # z gradient respects to w : a
             # wに対するz勾配の関係：a
             z_grad_w = x[i]
-            # z gradient respects to b : wa
-            # bに対するz勾配の関係：wa
+            # z gradient respects to b : 1
+            # bに対するz勾配の関係：1
             z_grad_b = 1
             # Chain rule: loss gradient respects to w = loss_grad*sigmoid_grad*z_grad
             # 連鎖規則：w = loss_grad * sigmoid_grad * z_gradに関する損失勾配
