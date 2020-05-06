@@ -11,7 +11,7 @@ x : Input of the neuron
 sigma : activation funtion, using sigmoid function sigma(x) = (1/1+exp(-x))
 w : weight in the neuron
 b : bias in the neuron
-y_pred : Input of the neuron
+y_pred : Output of the neuron
 
 PROCESSES
 forward : Feed an input(x) to the neuron, the neuron return the output(y_pred)
